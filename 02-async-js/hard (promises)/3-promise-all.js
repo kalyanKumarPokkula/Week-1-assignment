@@ -6,17 +6,51 @@
 
 
 function waitOneSecond() {
+    return new Promise(function (resolve ,reject){
+        setTimeout(function(){
+            resolve('Promise 1')
+        },1000)
+    })
 
 }
 
 function waitTwoSecond() {
-
+    return new Promise(function (resolve ,reject){
+        setTimeout(function(){
+            resolve('Promise 2')
+        },2000)
+    })
 }
 
 function waitThreeSecond() {
+    return new Promise(function (resolve ,reject){
+        setTimeout(function(){
+            resolve('Promise 3')
+        },3000)
+    })
+}
+
+async function calculateTime() {
+    var start = Date.now();
+    // Promise.all([waitOneSecond(),waitTwoSecond(),waitThreeSecond()]).then(function (response){
+    //     console.log(response);
+    //     var end = Date.now();
+    //     console.log((end - start) / 1000);
+    // })
+    var values = await Promise.all([waitOneSecond(),waitTwoSecond(),waitThreeSecond()]);
+
+    var end = Date.now();
+    
+
+    return (end - start) / 10000;
 
 }
 
-function calculateTime() {
+// calculateTime().then(function (response){
+//     console.log(response);
+// })
 
-}
+
+module.exports = {
+    calculateTime
+};

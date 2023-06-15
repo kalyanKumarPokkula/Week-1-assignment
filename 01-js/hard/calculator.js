@@ -17,6 +17,15 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+
+  constructor(input){
+    this.input = input;
+    this.result = result;
+
+  }
+
+  add()
+}
 
 module.exports = Calculator;

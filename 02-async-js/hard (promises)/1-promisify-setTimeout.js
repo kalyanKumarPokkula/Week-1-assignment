@@ -3,4 +3,14 @@
 */
 
 function wait(n) {
+    return new Promise(function(resolve , reject){
+        setTimeout(function (){
+            resolve("Successfully resolved promise");
+        }, n);
+    })
 }
+
+var promise = wait(9000);
+promise.then(function (response){
+  console.log(response);
+})
